@@ -1,0 +1,37 @@
+name: go
+description: The Go programming language
+homepage: https://go.dev/
+license: BSD-3-Clause
+maintainer: Camden DeVoogd <camdendevoogd@gmail.com>
+
+arch: ${PKG_ARCHITECTURE}
+version: ${PKG_VERSION}
+release: ${PKG_VERSION_RELEASE}
+
+conflicts:
+  - golang-go
+  - gccgo
+
+provides:
+  - go
+  - gofmt
+
+# CGO dependencies, taken from `apt info golang-1.19-go`
+recommends:
+  - gcc
+  - g++
+  - libc6-dev
+  - pkg-config
+
+contents:
+  - src: output/extracted/go/
+    dst: /opt/go
+    type: tree
+
+  - src: /opt/go/bin/go
+    dst: /usr/bin/go
+    type: symlink
+
+  - src: /opt/go/bin/gofmt
+    dst: /usr/bin/gofmt
+    type: symlink
