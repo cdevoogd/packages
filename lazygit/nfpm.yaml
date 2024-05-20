@@ -1,0 +1,19 @@
+name: lazygit
+description: simple terminal UI for git commands
+homepage: https://github.com/jesseduffield/lazygit
+license: MIT
+maintainer: Camden DeVoogd <camdendevoogd@gmail.com>
+
+arch: ${PKG_ARCHITECTURE}
+version: ${PKG_VERSION}
+release: ${PKG_VERSION_RELEASE}
+
+provides:
+  - lazygit
+
+depends:
+  - git
+
+contents:
+  - src: output/extracted/lazygit
+    dst: /usr/bin/lazygit
